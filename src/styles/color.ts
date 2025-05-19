@@ -1,0 +1,101 @@
+export const colors = {
+  'primary-950': '#450a0a',
+  'primary-900': '#7f1d1d',
+  'primary-800': '#991b1b',
+  'primary-700': '#b91c1c',
+  'primary-600': '#dc2626',
+  'primary-500': '#f05353',
+  'primary-400': '#f87171',
+  'primary-300': '#fca5a5',
+  'primary-200': '#fecaca',
+  'primary-100': '#fee2e2',
+  'primary-50': '#fef2f2',
+
+  'grey-950': '#1c1c1c',
+  'grey-900': '#333333',
+  'grey-800': '#4d4d4d',
+  'grey-700': '#666666',
+  'grey-600': '#808080',
+  'grey-500': '#999999',
+  'grey-400': '#b3b3b3',
+  'grey-300': '#cccccc',
+  'grey-200': '#e0e0e0',
+  'grey-100': '#f2f2f2',
+  'grey-50': '#f9f9f9',
+  'grey-0': '#ffffff',
+
+  'blue-950': '#141757',
+  'blue-500': '#335cff',
+  'blue-200': '#bccfff',
+
+  'neo-green-950': '#01321c',
+  'neo-green-500': '#2cea8b',
+  'neo-green-100': '#d9ffeb',
+
+  'yellow-950': '#442304',
+  'yellow-500': '#ffcc00',
+  'yellow-100': '#fffec1',
+
+  'green-950': '#0b463e',
+  'green-500': '#22d3bb',
+  'green-100': '#cafdf1',
+
+  'sky-950': '#124b68',
+  'sky-500': '#47c2ff',
+  'sky-100': '#dff1ff',
+
+  'purple-950': '#351a75',
+  'purple-500': '#7d52f4',
+  'purple-100': '#ece9fe',
+};
+
+export const darkColors: Record<keyof typeof colors, string> = {
+  'primary-50': '#450a0a',
+  'primary-100': '#7f1d1d',
+  'primary-200': '#991b1b',
+  'primary-300': '#b91c1c',
+  'primary-400': '#dc2626',
+  'primary-500': '#f05353',
+  'primary-600': '#f87171',
+  'primary-700': '#fca5a5',
+  'primary-800': '#fecaca',
+  'primary-900': '#fee2e2',
+  'primary-950': '#fef2f2',
+
+  'grey-0': '#1c1c1c',
+  'grey-50': '#333333',
+  'grey-100': '#4d4d4d',
+  'grey-200': '#666666',
+  'grey-300': '#808080',
+  'grey-400': '#999999',
+  'grey-500': '#b3b3b3',
+  'grey-600': '#cccccc',
+  'grey-700': '#e0e0e0',
+  'grey-800': '#f2f2f2',
+  'grey-900': '#f9f9f9',
+  'grey-950': '#ffffff',
+
+  'blue-200': '#141757',
+  'blue-500': '#335cff',
+  'blue-950': '#bccfff',
+
+  'neo-green-100': '#01321c',
+  'neo-green-500': '#2cea8b',
+  'neo-green-950': '#d9ffeb',
+
+  'yellow-100': '#442304',
+  'yellow-500': '#ffcc00',
+  'yellow-950': '#fffec1',
+
+  'green-100': '#0b463e',
+  'green-500': '#22d3bb',
+  'green-950': '#cafdf1',
+
+  'sky-100': '#124b68',
+  'sky-500': '#47c2ff',
+  'sky-950': '#dff1ff',
+
+  'purple-100': '#351a75',
+  'purple-500': '#7d52f4',
+  'purple-950': '#ece9fe',
+};
