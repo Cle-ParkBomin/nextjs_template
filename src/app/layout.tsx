@@ -23,10 +23,13 @@ export default function RootLayout({
         <div className='fixed top-0 bottom-0 left-0 z-10'>
           <Navigation menu={MENU} />
         </div>
+
         <div className='flex justify-end'>
           <DarkModeToggle />
         </div>
+
         <div className='flex flex-1'>{children}</div>
+
         <footer className='my-10'>
           <Footer />
         </footer>
