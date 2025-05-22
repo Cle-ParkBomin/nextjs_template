@@ -4,23 +4,23 @@ import { useRef, useState } from 'react';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 import { FaCheck } from 'react-icons/fa6';
 
-interface DropLineTextFieldProps {
-  value: string; // 선택된 값
-  valueList: string[]; // 선택지 목록
-  onClick: (value: string) => void; // 선택된 값 변경 핸들러
+interface DropLineTextFieldProps<T extends string> {
+  value: T; // 선택된 값
+  valueList: T[]; // 선택지 목록
+  onClick: (value: T) => void; // 선택된 값 변경 핸들러
   isDisabled?: boolean;
   placeholder?: string;
   style?: 'default' | 'line' | 'gray' | 'blue';
 }
 
-export default function DropLineTextField({
+export default function DropLineTextField<T extends string>({
   value,
   valueList,
   onClick,
   isDisabled = false,
   placeholder = 'Text',
   style = 'default',
-}: DropLineTextFieldProps) {
+}: DropLineTextFieldProps<T>) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -66,7 +66,7 @@ export default function DropLineTextField({
     if (isDisabled) return;
     setIsOpen(!isOpen);
   };
-  const handleClickButton = (item: string) => {
+  const handleClickButton = (item: T) => {
     onClick(item);
     setIsOpen(false);
   };
@@ -94,17 +94,16 @@ export default function DropLineTextField({
         )}
       </div>
       {isOpen && (
-        <div className='absolute top-[110%] left-0 z-10 max-h-48 w-[100%] overflow-auto rounded-sm border-grey-300 bg-grey-0 p-1 shadow-strong'>
-          <ul className='flex animate-fade-in flex-col gap-1'>
+        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[110%] z-10 max-h-48 w-[100%] overflow-auto rounded-sm p-1'>
+          <ul className='animate-fade-in flex flex-col gap-1'>
             {valueList.map((item) => (
               <button
                 key={item}
-                className={`flex flex-1 cursor-pointer items-center justify-between gap-1 px-4 py-2 hover:bg-grey-950/4 ${item === value && variantStyle[variantKey].button}`}
+                className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center justify-between gap-1 px-4 py-2 ${item === value && variantStyle[variantKey].button}`}
                 onClick={() => {
                   handleClickButton(item);
                 }}
               >
-                <p>{item}</p>
                 {item === value && <FaCheck size={16} />}
               </button>
             ))}
