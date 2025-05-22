@@ -9,7 +9,7 @@ export default function CardRadioView() {
     <div className='flex flex-col gap-4'>
       {/* CardRadio */}
       <h2>CardRadio</h2>
-      <div className='flex flex-col gap-10 rounded-s-lg border-1 border-grey-300 p-10'>
+      <div className='border-1 border-grey-300 flex flex-col gap-10 rounded-s-lg p-10'>
         <CardRadio
           value={value}
           onClick={() => setValue(!value)}

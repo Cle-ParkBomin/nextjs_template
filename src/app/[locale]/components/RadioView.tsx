@@ -9,7 +9,7 @@ export default function RadioView() {
     <div className='flex flex-1 flex-col gap-4'>
       {/* Radio */}
       <h2>Radio</h2>
-      <div className='flex flex-1 flex-wrap justify-between rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-1 flex-wrap justify-between rounded-s-lg p-4'>
         <div className='flex flex-1 flex-col gap-4'>
           <Radio
             value='Button'

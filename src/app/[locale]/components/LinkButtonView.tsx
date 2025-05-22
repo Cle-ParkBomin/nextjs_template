@@ -6,7 +6,7 @@ export default function LinkButtonView() {
     <div className='flex flex-col gap-4'>
       {/* Link Button */}
       <h2>Link Button</h2>
-      <div className='flex flex-col flex-wrap gap-12 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-col flex-wrap gap-12 rounded-s-lg p-4'>
         <div className='flex flex-1 gap-4'>
           <div className='flex flex-1 flex-col gap-4'>
             <LinkButton value='Button' style='primary' size='s' />

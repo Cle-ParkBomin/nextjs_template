@@ -8,7 +8,7 @@ export default function ToggleView() {
   return (
     <div className='flex flex-col gap-4'>
       <h2>Toggle</h2>
-      <div className='flex flex-1 flex-col rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-1 flex-col rounded-s-lg p-4'>
         <div className='flex flex-wrap justify-between'>
           <div className='flex flex-col gap-4'>
             <Toggle value={value} onClick={() => setValue(!value)} title='Button' />

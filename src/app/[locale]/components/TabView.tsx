@@ -1,7 +1,7 @@
 import ScrollNavigation from '@/components/tap/ScrollNavigation';
 import SegmentControl from '@/components/tap/SegmentControl';
 import Tab from '@/components/tap/Tab';
-import { TabType } from '@/type/components';
+import { TabType } from '@/types/components';
 import { useState } from 'react';
 
 export default function TabView() {
@@ -18,7 +18,7 @@ export default function TabView() {
     <div className='flex flex-col gap-4'>
       {/* Tab */}
       <h2>Tab</h2>
-      <div className='flex flex-col flex-wrap gap-4 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-col flex-wrap gap-4 rounded-s-lg p-4'>
         <div className='flex flex-1 justify-between gap-4'>
           <ScrollNavigation
             value={value}
@@ -38,7 +38,7 @@ export default function TabView() {
             valueList={valueList}
             onClick={(item: TabType) => setValue(item)}
           />
-          <SegmentControl valueList={valueList} isDisabled />
+          <SegmentControl value={value} valueList={valueList} isDisabled />
         </div>
         <div className='flex flex-1 gap-4'>
           <SegmentControl
@@ -47,7 +47,7 @@ export default function TabView() {
             onClick={(item: TabType) => setValue(item)}
             isIcon
           />
-          <SegmentControl valueList={valueList} isIcon isDisabled />
+          <SegmentControl value={value} valueList={valueList} isIcon isDisabled />
         </div>
         <div className='flex flex-1 gap-4'>
           <Tab value={value} valueList={valueList} onClick={(item: TabType) => setValue(item)} />

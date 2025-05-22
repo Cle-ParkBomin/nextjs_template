@@ -27,7 +27,7 @@ export default function ModalView() {
     <div className='flex flex-col gap-4'>
       {/* Modal */}
       <h2> Modal </h2>
-      <div className='flex flex-col gap-4 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-col gap-4 rounded-s-lg p-4'>
         <div className='flex flex-wrap gap-12'>
           <Button value='Popup (One Button)' onClick={() => setIsPopup1(true)} />
           <Button value='Popup (Two Button)' onClick={() => setIsPopup2(true)} />
@@ -72,7 +72,7 @@ export default function ModalView() {
               style='tertiary'
             />
             {isTooltip1 && (
-              <div className='absolute bottom-13'>
+              <div className='bottom-13 absolute'>
                 <Tooltip title='Title' detail='Detail' />
               </div>
             )}
@@ -84,7 +84,7 @@ export default function ModalView() {
               style='tertiary'
             />
             {isTooltip2 && (
-              <div className='absolute bottom-13'>
+              <div className='bottom-13 absolute'>
                 <Tooltip title='Title' detail='Detail' style='light' />
               </div>
             )}

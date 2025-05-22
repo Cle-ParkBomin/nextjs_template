@@ -1,4 +1,4 @@
-import { TabType } from '@/type/components';
+import { TabType } from '@/types/components';
 import { FaCheck } from 'react-icons/fa6';
 
 interface SegmentControlProps {
@@ -30,12 +30,12 @@ export default function SegmentControl({
 
   return (
     <div
-      className={`flex flex-1 flex-wrap justify-between gap-1 rounded-sm border-1 p-1 ${variantStyle[isDisabled ? 'disabled' : 'check'].wrapper}`}
+      className={`border-1 flex flex-1 flex-wrap justify-between gap-1 rounded-sm p-1 ${variantStyle[isDisabled ? 'disabled' : 'check'].wrapper}`}
     >
       {valueList?.map((item) => (
         <button
           key={`SegmentControl_${item.key}`}
-          className={`flex flex-1 items-center justify-center gap-1 rounded-xs px-4 py-2 text-14 leading-20 ${variantStyle[isDisabled ? 'disabled' : value.key === item.key ? 'check' : 'uncheck'].button}`}
+          className={`rounded-xs text-14 leading-20 flex flex-1 items-center justify-center gap-1 px-4 py-2 ${variantStyle[isDisabled ? 'disabled' : value.key === item.key ? 'check' : 'uncheck'].button}`}
           onClick={() => onClick && onClick(item)}
           disabled={isDisabled}
         >

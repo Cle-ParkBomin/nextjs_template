@@ -9,7 +9,7 @@ export default function NotFound() {
 
   return (
     <div className='flex flex-1 flex-col items-center justify-center gap-12'>
-      <p className='animate-bounce text-9xl font-extrabold text-primary-500'>Oops!</p>
+      <p className='text-primary-500 animate-bounce text-9xl font-extrabold'>Oops!</p>
       <h1>404 PAGE NOT FOUND</h1>
       <div className='flex flex-col justify-center gap-4'>
         <p>존재하지 않는 페이지 입니다.</p>

@@ -20,7 +20,7 @@ export default function InputView() {
     <div className='flex flex-col gap-4'>
       {/* Text Input */}
       <h2>Text Input</h2>
-      <div className='flex flex-wrap gap-4 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-wrap gap-4 rounded-s-lg p-4'>
         <div className='flex flex-1 flex-col gap-4'>
           <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
           <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} isDisabled />

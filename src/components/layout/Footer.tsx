@@ -1,10 +1,10 @@
 'use client';
 
+import LinkButton from '@/components/button/LinkButton';
+import Popup from '@/components/modal/Popup';
 import Image from 'next/image';
 import { useState } from 'react';
 import { IoMdPerson } from 'react-icons/io';
-import LinkButton from '../button/LinkButton';
-import Popup from '../modal/Popup';
 
 export default function Footer() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -18,7 +18,7 @@ export default function Footer() {
           icon={<IoMdPerson />}
           onClick={() => setIsOpen(true)}
         />
-        <p className='text-14 leading-20 text-ellipsis text-grey-500'>
+        <p className='text-14 leading-20 text-grey-500 text-ellipsis'>
           © 2025. CLE Inc. All rights reserved.
         </p>
       </div>

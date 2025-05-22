@@ -1,4 +1,4 @@
-import { TabType } from '@/type/components';
+import { TabType } from '@/types/components';
 
 interface TabProps {
   value: TabType;
@@ -12,12 +12,12 @@ export default function Tab({ value, valueList, onClick }: TabProps) {
       {valueList?.map((item) => (
         <button
           key={`Tab_${item.key}`}
-          className='cursor-pointer px-3 py-2 hover:bg-grey-950/4'
+          className='hover:bg-grey-950/4 cursor-pointer px-3 py-2'
           onClick={() => onClick && onClick(item)}
         >
           <h3
             className={`border-b-2 pb-1.5 ${
-              value.key === item.key ? 'border-primary-500' : 'border-transparent text-grey-500'
+              value.key === item.key ? 'border-primary-500' : 'text-grey-500 border-transparent'
             }`}
           >
             {item.value}

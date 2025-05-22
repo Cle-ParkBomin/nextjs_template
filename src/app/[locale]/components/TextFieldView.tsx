@@ -20,7 +20,7 @@ export default function TextFieldView() {
     <div className='flex flex-col gap-4'>
       {/* TextFlied */}
       <h2>TextFlied</h2>
-      <div className='flex flex-col flex-wrap gap-4 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-col flex-wrap gap-4 rounded-s-lg p-4'>
         <p>Enter 시, 줄 바꿈 기능</p>
         <div className='flex gap-4'>
           <div className='flex flex-1 flex-col gap-4'>

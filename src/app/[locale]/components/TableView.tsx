@@ -12,7 +12,7 @@ export default function TableView() {
     <div className='flex flex-col gap-4'>
       {/* Table */}
       <h2>Table</h2>
-      <div className='flex flex-col flex-wrap gap-12 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-col flex-wrap gap-12 rounded-s-lg p-4'>
         <p>
           Table 컴포넌트는 데이터 형태에 따라 구조가 크게 달라지므로, 본 문서에서는 구현 예시를
           생략합니다.

@@ -2,9 +2,11 @@
 
 import Toggle from '@/components/toggle/Toggle';
 import UseSystemDarkMode from '@/hooks/useSystemDarkMode';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
-export default function DarkModeToggle() {
+export default function ThemeMode() {
+  const t = useTranslations('root');
   const systemIsDark = UseSystemDarkMode();
   const [isDark, setIsDark] = useState(false);
 
@@ -18,5 +20,5 @@ export default function DarkModeToggle() {
     document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
   };
 
-  return <Toggle value={isDark} title='Dark Mode' onClick={toggleTheme} color='green' />;
+  return <Toggle value={isDark} title={t('theme-mode')} onClick={toggleTheme} color='green' />;
 }

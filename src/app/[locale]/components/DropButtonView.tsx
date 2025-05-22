@@ -9,7 +9,7 @@ export default function DropButtonView() {
     <div className='flex flex-col gap-4'>
       {/* Drop Button */}
       <h2>Drop Button</h2>
-      <div className='flex flex-col flex-wrap gap-12 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-col flex-wrap gap-12 rounded-s-lg p-4'>
         <DropButton
           title='Button'
           value={value}

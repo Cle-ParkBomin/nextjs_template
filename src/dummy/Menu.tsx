@@ -1,6 +1,6 @@
 import { MenuType } from '@/components/layout/Navigation';
 import { LuLayoutDashboard } from 'react-icons/lu';
-import { MdDoNotDisturb } from 'react-icons/md';
+import { MdDoNotDisturb, MdOutlineLanguage } from 'react-icons/md';
 import { TiHome } from 'react-icons/ti';
 
 export const MENU: Record<string, MenuType> = {
@@ -10,6 +10,12 @@ export const MENU: Record<string, MenuType> = {
     value: 'Component',
     url: '/components',
     icon: <LuLayoutDashboard />,
+  },
+  locale: {
+    key: 'locale',
+    value: 'Locale',
+    url: '/locale',
+    icon: <MdOutlineLanguage />,
   },
   disabled: {
     key: 'disabled',

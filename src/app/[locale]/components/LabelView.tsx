@@ -5,7 +5,7 @@ export default function LabelView() {
     <div className='flex flex-col gap-4'>
       {/* Label */}
       <h2>Label</h2>
-      <div className='flex flex-wrap gap-4 rounded-s-lg border-1 border-grey-300 p-4'>
+      <div className='border-1 border-grey-300 flex flex-wrap gap-4 rounded-s-lg p-4'>
         <div className='flex flex-1 flex-col gap-4'>
           <Label title='Label' size='l' />
           <Label title='Label' isMark size='l' />

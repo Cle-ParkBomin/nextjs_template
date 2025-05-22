@@ -1,5 +1,5 @@
+import Tooltip from '@/components/modal/Tooltip';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Tooltip from '../modal/Tooltip';
 
 interface SliderProps {
   value: number;
@@ -100,7 +100,7 @@ export default function Slider({
             style={{ left: `calc(${item}%` }}
           >
             <div className={`h-1.5 w-0.5 ${![0, 100].includes(item) && 'bg-grey-400'}`} />
-            <span className='-translate-x-1/2 transform text-12 leading-16 text-grey-500'>
+            <span className='text-12 leading-16 text-grey-500 -translate-x-1/2 transform'>
               {item}
             </span>
           </div>
