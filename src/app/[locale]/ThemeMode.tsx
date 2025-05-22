@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 export default function ThemeMode() {
   const t = useTranslations('root');
   const systemIsDark = UseSystemDarkMode();
+
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
