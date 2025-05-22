@@ -80,10 +80,11 @@ export default function Slider({
   }, [isDragging, calculatePercent, isDisabled]);
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       className={`relative flex w-full ${variantStyle[variantKey].wrapper}`}
       ref={sliderRef}
-      onClick={handleClickBar}
+      onClick={handleClickBar} // div 태그는 클릭 가능한 요소가 아닙니다.
     >
       {/* slider bar */}
       <div
