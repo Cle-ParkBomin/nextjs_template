@@ -5,18 +5,19 @@ import { useColorByTheme } from '@/hooks/useColorByTheme';
 import { useRef, useState } from 'react';
 import { CgChevronDown, CgChevronUp } from 'react-icons/cg';
 import { FaCheck } from 'react-icons/fa6';
-interface DropInputProps {
-  value: string; // 선택된 값
-  valueList: string[]; // 선택지 목록
-  onClick: (value: string) => void; // 선택된 값 변경 핸들러
+interface DropInputProps<T extends string> {
+  value: T; // 선택된 값
+  valueList: T[]; // 선택지 목록
+  onClick: (value: T) => void; // 선택된 값 변경 핸들러
   isDisabled?: boolean; // 선택 비활성화 여부
   isError?: boolean; // 에러 상태 여부
   errorMessage?: string; // 에러 메시지 (에러 상태일 때만 표시)
   placeholder?: string; // 플레이스홀더 텍스트
   style?: 'default' | 'blue' | 'ghost'; // 색상 스타일
+  size?: 'm' | 's';
 }
 
-export default function DropInput({
+export default function DropInput<T extends string>({
   value,
   valueList,
   onClick,
@@ -25,7 +26,8 @@ export default function DropInput({
   errorMessage,
   placeholder = 'Text',
   style = 'default',
-}: DropInputProps) {
+  size = 'm',
+}: DropInputProps<T>) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -71,13 +73,17 @@ export default function DropInput({
       button: 'text-primary-500 hover:text-primary-600',
     },
   };
+  const sizeStyle = {
+    m: { inputWrapper: 'h-12 px-4 py-3', dropButton: 'px-4 py-2' },
+    s: { inputWrapper: 'h-9 px-3 py-1.5', dropButton: 'px-3 py-1' },
+  };
   const variantKey = isDisabled ? 'disabled' : isError ? 'error' : style;
 
   const handleClickInput = () => {
     if (isDisabled) return;
     setIsOpen(!isOpen);
   };
-  const handleClickButton = (item: string) => {
+  const handleClickButton = (item: T) => {
     onClick(item);
     setIsOpen(false);
   };
@@ -87,10 +93,10 @@ export default function DropInput({
   return (
     <div className='relative flex flex-1 flex-col gap-1' ref={dropdownRef}>
       <div
-        className={`flex h-12 items-center rounded-sm border-1 px-4 py-3 ${variantStyle[variantKey].wrapper}`}
+        className={`border-1 flex items-center rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size].inputWrapper}`}
       >
         <input
-          className={`flex flex-1 text-16 outline-0 ${variantStyle[variantKey].input}`}
+          className={`text-16 flex flex-1 outline-0 ${variantStyle[variantKey].input}`}
           placeholder={placeholder}
           value={value}
           onClick={handleClickInput}
@@ -105,7 +111,7 @@ export default function DropInput({
       </div>
 
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (
@@ -113,12 +119,12 @@ export default function DropInput({
       )}
 
       {isOpen && (
-        <div className='absolute top-[80%] left-0 z-10 max-h-48 w-[100%] overflow-auto rounded-sm border border-grey-300 bg-grey-0 p-1 shadow-strong'>
-          <ul className='flex flex-1 animate-fade-in flex-col gap-1'>
+        <div className='border-grey-300 bg-grey-0 shadow-strong absolute left-0 top-[80%] max-h-48 w-[100%] overflow-auto rounded-sm border p-1'>
+          <ul className='animate-fade-in flex flex-1 flex-col gap-1'>
             {valueList.map((item) => (
               <button
                 key={item}
-                className={`flex flex-1 cursor-pointer items-center justify-between gap-1 px-4 py-2 hover:bg-grey-950/4 ${item === value && variantStyle[variantKey].button}`}
+                className={`hover:bg-grey-950/4 flex flex-1 cursor-pointer items-center justify-between gap-1 ${item === value && variantStyle[variantKey].button} ${sizeStyle[size].dropButton}`}
                 onClick={() => {
                   handleClickButton(item);
                 }}

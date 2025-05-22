@@ -16,6 +16,7 @@ interface UploadFileProps {
   clickDelete?: () => void;
   clickCancel?: () => void;
   style?: 'default' | 'blue' | 'ghost';
+  size?: 'm' | 's';
 }
 
 export default function UploadFile({
@@ -28,6 +29,7 @@ export default function UploadFile({
   clickDelete,
   clickCancel,
   style = 'default',
+  size = 'm',
 }: UploadFileProps) {
   const fileInputRef = React.useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>('');
@@ -56,6 +58,10 @@ export default function UploadFile({
       wrapper: 'border-grey-100 bg-grey-100',
       input: 'placeholder:text-grey-500 text-grey-700',
     },
+  };
+  const sizeStyle = {
+    m: 'h-12 px-4 py-3',
+    s: 'h-9 px-3 py-1.5',
   };
   const variantKey = isDisabled ? 'disabled' : isError ? 'error' : style;
 
@@ -99,7 +105,7 @@ export default function UploadFile({
     <div className='flex flex-1 flex-col gap-1'>
       {!isUploading ? (
         <div
-          className={`flex h-12 items-center gap-1 rounded-sm border-1 px-4 py-3 ${variantStyle[variantKey].wrapper}`}
+          className={`border-1 flex items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
         >
           <input
             className='hidden'
@@ -110,7 +116,7 @@ export default function UploadFile({
             onChange={handleFileChange}
           />
           <input
-            className={`flex flex-1 text-16 caret-blue-500 outline-0 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${variantStyle[variantKey].input}`}
+            className={`text-16 flex flex-1 caret-blue-500 outline-0 ${isDisabled ? 'cursor-not-allowed' : 'cursor-pointer'} ${variantStyle[variantKey].input}`}
             value={fileName}
             placeholder='Upload file'
             readOnly
@@ -136,14 +142,16 @@ export default function UploadFile({
           )}
         </div>
       ) : (
-        <div className='flex items-center gap-1 rounded-sm border-1 border-grey-400 bg-grey-0 px-4 py-3'>
+        <div
+          className={`border-1 border-grey-400 bg-grey-0 flex items-center gap-1 rounded-sm ${sizeStyle[size]}`}
+        >
           <LoadingIcon />
-          <p className='flex flex-1 text-16 text-grey-950 caret-blue-500 outline-0'>Uploading...</p>
+          <p className='text-16 text-grey-950 flex flex-1 caret-blue-500 outline-0'>Uploading...</p>
           <IoMdClose cursor='pointer' color={grey500} size={20} onClick={handleCancel} />
         </div>
       )}
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (

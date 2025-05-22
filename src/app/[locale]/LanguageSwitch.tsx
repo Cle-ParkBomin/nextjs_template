@@ -21,6 +21,7 @@ export default function LanguageSwitch() {
       value={currentLocale}
       valueList={LOCALES}
       onClick={handleLocaleChange}
+      size='s'
     />
   );
 }

@@ -14,6 +14,7 @@ interface StepperInputProps {
   clickPlus?: () => void;
   clickMinus?: () => void;
   style?: 'default' | 'blue' | 'ghost';
+  size?: 'm' | 's';
 }
 
 export default function StepperInput({
@@ -26,6 +27,7 @@ export default function StepperInput({
   clickPlus,
   clickMinus,
   style = 'default',
+  size = 'm',
 }: StepperInputProps) {
   const [isFocus, setIsFocus] = useState<boolean>(false);
 
@@ -59,15 +61,19 @@ export default function StepperInput({
       input: 'placeholder:text-grey-500 text-grey-700',
     },
   };
+  const sizeStyle = {
+    m: 'h-12 px-4 py-3',
+    s: 'h-9 px-3 py-1.5',
+  };
   const variantKey = isDisabled ? 'disabled' : isError ? 'error' : isFocus ? 'focus' : style;
 
   return (
     <div className='flex flex-1 flex-col gap-1'>
       <div
-        className={`flex h-12 items-center gap-1 rounded-sm border-1 px-4 py-3 ${variantStyle[variantKey].wrapper}`}
+        className={`border-1 flex items-center gap-1 rounded-sm ${variantStyle[variantKey].wrapper} ${sizeStyle[size]}`}
       >
         <input
-          className={`flex flex-1 text-16 caret-blue-500 outline-0 $${variantStyle[variantKey].input}`}
+          className={`text-16 flex flex-1 caret-blue-500 outline-0 $${variantStyle[variantKey].input}`}
           placeholder={placeholder}
           disabled={isDisabled}
           value={value}
@@ -99,7 +105,7 @@ export default function StepperInput({
         </div>
       </div>
       {errorMessage ? (
-        <p className='ml-2 animate-fade-in text-14 leading-20 break-words text-primary-600'>
+        <p className='animate-fade-in text-14 leading-20 text-primary-600 ml-2 break-words'>
           {errorMessage}
         </p>
       ) : (
