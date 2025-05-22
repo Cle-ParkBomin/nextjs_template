@@ -1,32 +1,42 @@
 import Button from '@/components/button/Button';
-import { Dispatch, SetStateAction } from 'react';
+import { DateRange } from '@/types/date';
+import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { ko } from 'react-day-picker/locale';
 
-export interface DateRange {
-  from: Date | undefined;
-  to?: Date | undefined;
-}
-
 interface CalendarProps {
-  selected: DateRange | undefined;
-  setSelected: Dispatch<SetStateAction<DateRange | undefined>>;
+  value: DateRange;
+  setValue: (value: DateRange) => void;
+  onClickReset?: () => void;
+  onClickApply?: () => void;
 }
 
-export default function Calendar({ selected, setSelected }: CalendarProps) {
+export default function Calendar({ value, setValue, onClickReset, onClickApply }: CalendarProps) {
+  const [date, setDate] = useState<DateRange>(value);
+
+  const handleReset = () => {
+    setDate(value);
+    if (onClickReset) onClickReset();
+  };
+
+  const handleApply = () => {
+    setValue(date);
+    if (onClickApply) onClickApply();
+  };
+
   return (
-    <div className='flex w-fit flex-col rounded-lg border border-grey-300 bg-grey-0 pt-4 shadow-strong'>
+    <div className='border-grey-300 bg-grey-0 shadow-strong flex w-fit flex-col rounded-lg border pt-4'>
       <DayPicker
         mode='range'
-        selected={selected}
-        onSelect={setSelected}
+        selected={date}
+        onSelect={(selected) => selected && setDate(selected)}
         locale={ko}
         fixedWeeks
         showOutsideDays
         captionLayout='dropdown'
         classNames={{
           root: 'relative',
-          // body
+          // body style
           month_grid: 'flex flex-col py-2 mt-2 border-t border-grey-200',
           // month arrow style
           nav: 'absolute top-3 right-0 px-5 flex gap-3',
@@ -56,10 +66,10 @@ export default function Calendar({ selected, setSelected }: CalendarProps) {
       />
       <div className='flex items-center justify-end gap-8 p-4'>
         <div className='flex w-[100px]'>
-          <Button value='초기화' style='ghost' size='s' />
+          <Button value='초기화' style='ghost' size='s' onClick={handleReset} />
         </div>
         <div className='flex w-[100px]'>
-          <Button value='확인' size='s' />
+          <Button value='확인' size='s' onClick={handleApply} />
         </div>
       </div>
     </div>
