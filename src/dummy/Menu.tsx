@@ -4,7 +4,7 @@ import { MdDoNotDisturb, MdOutlineLanguage } from 'react-icons/md';
 import { TiHome } from 'react-icons/ti';
 
 export const MENU: Record<string, MenuType> = {
-  home: { key: 'home', value: 'Home', url: '/', icon: <TiHome /> },
+  home: { key: 'home', value: 'Home', url: '/home', icon: <TiHome /> },
   component: {
     key: 'component',
     value: 'Component',
