@@ -49,5 +49,6 @@
   "useDefineForClassFields": true, // 클래스 필드 초기화를 define 키워드로 강제 (일관성 및 성능)
   "strictPropertyInitialization": true, // 클래스 생성자 내 모든 속성 초기화 강제
   "strictNullChecks": true, // null 및 undefined 값에 대한 엄격한 검사 활성화
-  "alwaysStrict": true // JavaScript 코드를 strict 모드로 항상 실행
+  "alwaysStrict": true, // JavaScript 코드를 strict 모드로 항상 실행
+  "allowArbitraryExtensions": true // json 유형 선언 타입 검사
 }

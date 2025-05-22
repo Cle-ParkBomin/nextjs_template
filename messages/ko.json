@@ -1,0 +1,10 @@
+{
+  "root": {
+    "theme-mode": "다크 모드",
+    "language-switch": "언어 선택"
+  },
+  "locale": {
+    "title": "다국어 설정",
+    "content": "좋은 아침입니다!"
+  }
+}

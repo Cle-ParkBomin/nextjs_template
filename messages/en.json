@@ -1,0 +1,10 @@
+{
+  "root": {
+    "theme-mode": "Dark Mode",
+    "language-switch": "Language"
+  },
+  "locale": {
+    "title": "Locale",
+    "content": "Hello, World!"
+  }
+}
