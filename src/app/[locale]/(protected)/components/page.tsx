@@ -16,7 +16,7 @@ import TabView from './TabView';
 import TextFieldView from './TextFieldView';
 import ToggleView from './ToggleView';
 
-export default function Page() {
+export default function Components() {
   return (
     <div className='flex flex-col gap-8'>
       <h1>Design System Components</h1>
