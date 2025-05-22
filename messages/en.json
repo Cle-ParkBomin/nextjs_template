@@ -3,6 +3,16 @@
     "theme-mode": "Dark Mode",
     "language-switch": "Language"
   },
+  "error": {
+    "title": "An unexpected error occurred while loading the page.",
+    "content": "Please try again shortly, or go back to the previous page.",
+    "button": "Go Back"
+  },
+  "not-found": {
+    "title": "404 PAGE NOT FOUND",
+    "content": "This page doesn't exist.",
+    "button": "Go to Home"
+  },
   "locale": {
     "title": "Locale",
     "content": "Hello, World!"
