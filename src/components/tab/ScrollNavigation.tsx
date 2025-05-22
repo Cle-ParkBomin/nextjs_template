@@ -1,9 +1,11 @@
-import { TabType } from '@/types/components';
-
+export interface ScrollNavigationType {
+  key?: number;
+  value?: string;
+}
 interface ScrollNavigationProps {
-  value: TabType;
-  valueList: TabType[];
-  onClick?: (value: TabType) => void;
+  value: ScrollNavigationType;
+  valueList: ScrollNavigationType[];
+  onClick?: (value: ScrollNavigationType) => void;
   align?: 'left' | 'right';
 }
 

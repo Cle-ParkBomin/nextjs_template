@@ -1,10 +1,14 @@
-import { TabType } from '@/types/components';
 import { FaCheck } from 'react-icons/fa6';
 
+export interface SegmentControlType {
+  key?: number;
+  value?: string;
+}
+
 interface SegmentControlProps {
-  value: TabType;
-  valueList: TabType[];
-  onClick?: (value: TabType) => void;
+  value: SegmentControlType;
+  valueList: SegmentControlType[];
+  onClick?: (value: SegmentControlType) => void;
   isIcon?: boolean;
   isDisabled?: boolean;
 }

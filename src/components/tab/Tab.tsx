@@ -1,4 +1,7 @@
-import { TabType } from '@/types/components';
+export interface TabType {
+  key?: number;
+  value?: string;
+}
 
 interface TabProps {
   value: TabType;
